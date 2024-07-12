@@ -13,7 +13,7 @@ function App() {
         const response = await fetch(traineeDataURL);
         const traineeData = await response.json();
         setList(traineeData);
-        console.log("trainee data", traineeData);
+        // console.log("My name is", traineeData);
       }
       catch(error){
         alert(error);
@@ -30,10 +30,22 @@ function App() {
     favouritecolour:"Gray",
     age:23,
   }
+
   return (
     <>
       <h1>{car.model}</h1>
-      <h1>My name is {trainee.Name}</h1>
+      
+      <>
+      {/* {trainee.length > 0 &&}/ */}
+      {list.map((trainee) => (
+        <div key={trainee.length}>
+          <h1>My name is {trainee.Name}</h1>
+        </div>
+      ))}
+    </>
+
+          {/* <h1>My name is {trainee.Name}</h1> */}
+
       <p>I live at {trainee.location} and my favourite colour is {trainee.favouritecolour}.</p>
     </>
   )
